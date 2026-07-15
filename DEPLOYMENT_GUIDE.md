@@ -25,25 +25,26 @@ Render offers a free tier for web services that spin down after 15 minutes of in
 
 ---
 
-## 2. Deploying on Hugging Face Spaces
+## 2. Deploying on Koyeb
 
-Hugging Face Spaces is an excellent, free alternative for hosting AI applications, especially Streamlit and Docker-based apps.
+[Koyeb](https://www.koyeb.com) is an excellent developer-friendly platform that offers a generous free tier (EcoFree) for running Docker containers directly from GitHub.
 
 ### Prerequisites
-- A free account on [Hugging Face](https://huggingface.co/).
+- A GitHub account.
+- A free account on [Koyeb](https://app.koyeb.com/).
 
 ### Steps
-1. Go to your Hugging Face profile and click **New Space**.
-2. Set the **Space name** (e.g., `motiveminds-support`).
-3. For **License**, choose an appropriate license or leave it blank.
-4. For **Space SDK**, choose **Streamlit** (This is entirely free!).
-5. Set the Space hardware to **Free**.
-6. Click **Create Space**.
-7. In the Space settings, go to the **Variables and secrets** section and add a New Secret:
-   - Name: `GOOGLE_API_KEY`
-   - Value: your-gemini-key
-8. Upload your project files (specifically `app.py`, `requirements.txt`, and the `src`/`data` folders) to the Space. You can do this via the browser interface (Add file -> Upload files) or by cloning the Space's Git repository and pushing your code.
-9. Hugging Face will automatically detect `app.py` and `requirements.txt`, install your dependencies, and start your Streamlit app!
+1. Log into your Koyeb dashboard.
+2. Click **Create Service**.
+3. Select **GitHub** as the deployment method and connect your account.
+4. Select your `motiveminds` repository.
+5. In the **Builder** section, select **Dockerfile**. Koyeb will automatically detect the `Dockerfile` in the root of your repository.
+6. In the **Environment variables** section, add your API keys:
+   - Key: `GOOGLE_API_KEY` | Value: `your-gemini-key`
+   - Key: `OPENAI_API_KEY` | Value: `(optional)`
+7. Scroll down to the **Instance** section and select the **Free** (EcoFree) tier.
+8. Click **Deploy**.
+9. Koyeb will build the Docker container and start your Streamlit app. You can monitor the build process in the logs and access the app via the public URL provided!
 
 > **Note:**
-> Since both platforms spin down inactive containers on their free tiers, the in-memory chat history (handled by `MemorySaver`) will reset when the application sleeps and wakes up. This is standard behavior for free deployment environments without an external database.
+> Just like Render, the free tier on Koyeb may sleep after a period of inactivity, which will reset the in-memory checkpointer. This is standard across free hosting providers.
