@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: motiveminds-app
+    ports:
+      - "8501:8501"
+    environment:
+      # We reference variables here without values to pull them from the host's .env file,
+      # keeping them secure and out of version control.
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY:-}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - SESSION_SECRET=${SESSION_SECRET:-local_secret}

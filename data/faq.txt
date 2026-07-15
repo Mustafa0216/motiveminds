@@ -1,0 +1,37 @@
+MotiveMinds Customer Support Knowledge Base FAQ
+
+==================================================
+Topic: Account & Authentication
+==================================================
+Q: How do I reset my password?
+A: You can reset your password by clicking on the "Forgot Password" link on the login page. An email will be sent to your registered address with instructions to set a new password. If you do not receive the email within 10 minutes, please check your spam folder or contact support@motiveminds.com.
+
+Q: Can I change my registered email address?
+A: Yes, you can change your registered email address from the Account Settings panel after logging in. For security reasons, you will need to verify the new email address before the change becomes active.
+
+Q: Is two-factor authentication (2FA) supported?
+A: Yes, MotiveMinds supports 2FA via authenticator apps (like Google Authenticator or Authy). You can enable this in Account Settings under the Security tab.
+
+==================================================
+Topic: Billing & Subscription
+==================================================
+Q: What payment methods do you accept?
+A: We accept all major credit cards (Visa, MasterCard, American Express, Discover), PayPal, and Apple Pay. For enterprise plans, we also support bank transfers and invoicing.
+
+Q: How does the 14-day free trial work?
+A: The 14-day free trial gives you full access to all features of the Pro plan. No credit card is required to start the trial. At the end of the 14 days, you can choose to subscribe or your account will automatically downgrade to the Free tier.
+
+Q: What is your refund policy?
+A: We offer a 30-day money-back guarantee for all monthly and annual subscriptions. If you are not satisfied with MotiveMinds, contact billing@motiveminds.com within 30 days of your purchase for a full refund.
+
+==================================================
+Topic: Product & Technical Support
+==================================================
+Q: How do I integrate MotiveMinds with my existing CRM?
+A: MotiveMinds provides direct integrations with Salesforce, HubSpot, and Zoho. Go to Settings > Integrations, select your CRM, and follow the OAuth authorization flow. Detailed API documentation is available at developers.motiveminds.com.
+
+Q: What are the system requirements for the MotiveMinds desktop app?
+A: The MotiveMinds desktop app requires Windows 10/11 (64-bit) or macOS 11.0 (Big Sur) or later. A minimum of 8GB RAM and 500MB free disk space is recommended.
+
+Q: How do I report a bug?
+A: You can report bugs directly through the app by clicking on "Help" > "Report a Problem", or by submitting a ticket on our support portal at support.motiveminds.com with screenshots and steps to reproduce.

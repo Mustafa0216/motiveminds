@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: motiveminds-app
+    env: docker
+    plan: free
+    dockerCommand: "streamlit run app.py --server.port=8501 --server.address=0.0.0.0"
+    envVars:
+      # Note: DO NOT hardcode your GOOGLE_API_KEY here.
+      # You should add GOOGLE_API_KEY manually via the Render Dashboard
+      # in the Environment Variables section for this service.
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true

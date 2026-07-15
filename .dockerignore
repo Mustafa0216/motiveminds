@@ -1,0 +1,24 @@
+# Environments and secrets
+.env
+.env.*
+!.env.template
+.venv
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# IDEs
+.vscode/
+.idea/
+
+# Git
+.git/
+.gitignore
+
+# Redis / DB
+dump.rdb
