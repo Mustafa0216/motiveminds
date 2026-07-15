@@ -36,15 +36,14 @@ Hugging Face Spaces is an excellent, free alternative for hosting AI application
 1. Go to your Hugging Face profile and click **New Space**.
 2. Set the **Space name** (e.g., `motiveminds-support`).
 3. For **License**, choose an appropriate license or leave it blank.
-4. For **Space SDK**, choose **Docker**.
-5. Choose the **Blank** Docker template.
-6. Set the Space hardware to **Free**.
-7. Click **Create Space**.
-8. In the Space settings, go to the **Variables and secrets** section and add a New Secret:
+4. For **Space SDK**, choose **Streamlit** (This is entirely free!).
+5. Set the Space hardware to **Free**.
+6. Click **Create Space**.
+7. In the Space settings, go to the **Variables and secrets** section and add a New Secret:
    - Name: `GOOGLE_API_KEY`
    - Value: your-gemini-key
-9. Upload your project files (including the `Dockerfile` and `requirements.txt`) to the Space. You can do this via the browser interface (Add file -> Upload files) or by cloning the Space's Git repository and pushing your code.
-10. Hugging Face will automatically detect the `Dockerfile`, build the image, and start your Streamlit app!
+8. Upload your project files (specifically `app.py`, `requirements.txt`, and the `src`/`data` folders) to the Space. You can do this via the browser interface (Add file -> Upload files) or by cloning the Space's Git repository and pushing your code.
+9. Hugging Face will automatically detect `app.py` and `requirements.txt`, install your dependencies, and start your Streamlit app!
 
 > **Note:**
 > Since both platforms spin down inactive containers on their free tiers, the in-memory chat history (handled by `MemorySaver`) will reset when the application sleeps and wakes up. This is standard behavior for free deployment environments without an external database.
