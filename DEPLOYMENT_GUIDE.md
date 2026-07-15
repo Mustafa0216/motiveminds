@@ -25,26 +25,27 @@ Render offers a free tier for web services that spin down after 15 minutes of in
 
 ---
 
-## 2. Deploying on Koyeb
+## 2. Deploying on Streamlit Community Cloud
 
-[Koyeb](https://www.koyeb.com) is an excellent developer-friendly platform that offers a generous free tier (EcoFree) for running Docker containers directly from GitHub.
+Since this is a Streamlit application, the **Streamlit Community Cloud** is actually the most native and seamless way to deploy it for free. It pulls directly from your GitHub repository and handles all the infrastructure for you automatically.
 
 ### Prerequisites
 - A GitHub account.
-- A free account on [Koyeb](https://app.koyeb.com/).
+- A free account on [Streamlit Community Cloud](https://share.streamlit.io/).
 
 ### Steps
-1. Log into your Koyeb dashboard.
-2. Click **Create Service**.
-3. Select **GitHub** as the deployment method and connect your account.
-4. Select your `motiveminds` repository.
-5. In the **Builder** section, select **Dockerfile**. Koyeb will automatically detect the `Dockerfile` in the root of your repository.
-6. In the **Environment variables** section, add your API keys:
-   - Key: `GOOGLE_API_KEY` | Value: `your-gemini-key`
-   - Key: `OPENAI_API_KEY` | Value: `(optional)`
-7. Scroll down to the **Instance** section and select the **Free** (EcoFree) tier.
-8. Click **Deploy**.
-9. Koyeb will build the Docker container and start your Streamlit app. You can monitor the build process in the logs and access the app via the public URL provided!
+1. Log into Streamlit Community Cloud using your GitHub account.
+2. Click **New app** -> **Use existing repo**.
+3. Select your `motiveminds` repository from the dropdown.
+4. Set the **Main file path** to `app.py`.
+5. Before clicking deploy, click on **Advanced settings**.
+6. In the **Secrets** section (which acts exactly like your `.env` file), paste your API keys like this:
+   ```toml
+   GOOGLE_API_KEY="your-gemini-key"
+   OPENAI_API_KEY="your-openai-key" # Optional
+   ```
+7. Click **Save** and then click **Deploy!**
+8. Streamlit will automatically read your `requirements.txt`, install everything, and launch your app. It will give you a public shareable link instantly.
 
 > **Note:**
-> Just like Render, the free tier on Koyeb may sleep after a period of inactivity, which will reset the in-memory checkpointer. This is standard across free hosting providers.
+> Just like Render, apps on the free Community Cloud will go to sleep if they haven't been visited for a few days. The memory checkpointer will reset when the app wakes up.
