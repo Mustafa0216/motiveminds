@@ -25,27 +25,26 @@ Render offers a free tier for web services that spin down after 15 minutes of in
 
 ---
 
-## 2. Deploying on Streamlit Community Cloud
+## 2. Deploying on Railway
 
-Since this is a Streamlit application, the **Streamlit Community Cloud** is actually the most native and seamless way to deploy it for free. It pulls directly from your GitHub repository and handles all the infrastructure for you automatically.
+[Railway](https://railway.app) is a highly reliable cloud platform that makes deploying Docker applications incredibly straightforward. They offer a trial tier that is great for testing small projects.
 
 ### Prerequisites
 - A GitHub account.
-- A free account on [Streamlit Community Cloud](https://share.streamlit.io/).
+- An account on [Railway](https://railway.app/).
 
 ### Steps
-1. Log into Streamlit Community Cloud using your GitHub account.
-2. Click **New app** -> **Use existing repo**.
-3. Select your `motiveminds` repository from the dropdown.
-4. Set the **Main file path** to `app.py`.
-5. Before clicking deploy, click on **Advanced settings**.
-6. In the **Secrets** section (which acts exactly like your `.env` file), paste your API keys like this:
-   ```toml
-   GOOGLE_API_KEY="your-gemini-key"
-   OPENAI_API_KEY="your-openai-key" # Optional
-   ```
-7. Click **Save** and then click **Deploy!**
-8. Streamlit will automatically read your `requirements.txt`, install everything, and launch your app. It will give you a public shareable link instantly.
+1. Log into your Railway dashboard.
+2. Click **New Project** and select **Deploy from GitHub repo**.
+3. Select your `motiveminds` repository.
+4. Railway will automatically detect your `Dockerfile` and begin building the application.
+5. While it builds, go to the **Variables** tab in your Railway project.
+6. Add your API keys as environment variables:
+   - `GOOGLE_API_KEY`: your-gemini-key
+   - `OPENAI_API_KEY`: (optional, if you're using OpenAI)
+7. Go to the **Settings** tab and scroll down to **Networking**.
+8. Click **Generate Domain** to get a public URL for your application (e.g., `motiveminds-production.up.railway.app`).
+9. Your app will redeploy with the environment variables and become accessible at the generated URL!
 
 > **Note:**
-> Just like Render, apps on the free Community Cloud will go to sleep if they haven't been visited for a few days. The memory checkpointer will reset when the app wakes up.
+> Railway uses your Dockerfile exactly as configured. Because we removed the Redis dependency and shifted to `MemorySaver`, your chat history will be stored in-memory and will reset if the Railway container restarts.
